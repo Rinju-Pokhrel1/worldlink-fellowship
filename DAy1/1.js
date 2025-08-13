@@ -8,7 +8,7 @@ console.log(c);
 
 // regular function
 function getName() {
-    console.log("hello rinju from regular function");
+    console.log("hello rinju from regular functional");
 }
 getName();
 

@@ -1,6 +1,6 @@
 // //callback functions
 console.log("start")
-
+//// to run after the current event loop poll has completed
 setTimeout(() => {
     console.log("Hello Rinju")
 }, 0)

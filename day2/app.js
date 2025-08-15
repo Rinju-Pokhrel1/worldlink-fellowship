@@ -15,10 +15,13 @@ const express = require('express');
 // //listen-port
 
 const collegeRouter = require('./college');
-
-
+const studentRouter = require('./student'); //importing the student route file
 const app = express();
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+    res.send('Hello world from app.js');
+});
 //mysql connection
 
 // const mysql = require('mysql2');
@@ -39,15 +42,16 @@ const app = express();
 //     }
 // });
 
-// connection.query("select * from colleges", (err, result) => {
-//     if (err) {
-//         console.log("error in query colleges", err);
-//     }
-//     else {
-//         console.log("college data is", result);
-//     }
-// });
+// // connection.query("select * from colleges", (err, result) => {
+// //     if (err) {
+// //         console.log("error in query colleges", err);
+// //     }
+// //     else {
+// //         console.log("college data is", result);
+// //     }
+// // });
 app.use('/college', collegeRouter);
+app.use('/student', studentRouter);
 
 app.listen(4000, () => {
     console.log('Express is running on port 4000');
